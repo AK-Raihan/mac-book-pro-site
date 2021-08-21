@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+img {
+    width: 100%;
+}
+
+.main-row {
+    border-bottom: 1px solid rgb(179, 171, 171);
+}
+
+.price-span {
+    margin-left: 110px;
+}
+
+.price-item h5 {
+    border-bottom: 1px solid #ddd;
+}
+
+#delivary {
+    border-bottom: 3px solid rgb(75, 72, 72);
+}
