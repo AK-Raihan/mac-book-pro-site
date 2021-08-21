@@ -1,60 +1,61 @@
+
 // memory btn id
 const memory8GB= document.getElementById('memory-8gb-btn');
 const memory16GB= document.getElementById('memory-16gb-btn');
 
 // storage btn id
-const stroage256GB = document.getElementById('storage256')
-const stroage512GB = document.getElementById('storage512')
-const stroage1TB = document.getElementById('storage1TB')
+const stroage256GB = document.getElementById('storage256');
+const stroage512GB = document.getElementById('storage512');
+const stroage1TB = document.getElementById('storage1TB');
 
 // delivery btn id
 const freeDelivery = document.getElementById('free');
-const expressDelivery = document.getElementById('express')
+const expressDelivery = document.getElementById('express');
 
 // memory and straoge and delivery field
-const extraMemoryField = document.getElementById('extra-memory-cost');
+const extraMemoryField = document.getElementById('memory-cost');
 const storageField = document.getElementById('storage-cost');
-const deliveryField = document.getElementById('delivery-charge');
+const deliveryField = document.getElementById('delivery-cost');
 
-// delivery addeven
-freeDelivery.addEventListener('click', function(){
+// delivery addevent
+document.getElementById('free').addEventListener('click', function(){
     deliveryField.innerText = 0;
     totalUpdate()
 })
-expressDelivery.addEventListener('click', function(){
+document.getElementById('express').addEventListener('click', function(){
     deliveryField.innerText = 20;
-    totalUpdate()
+    totalUpdate();
 })
 
-// straoge addeven
-stroage256GB.addEventListener('click', function(){
+// straoge addevent
+document.getElementById('storage256').addEventListener('click', function(){
     storageField.innerText = 0;
-    totalUpdate()
+    totalUpdate();
 })
-stroage512GB.addEventListener('click', function(){
+document.getElementById('storage512').addEventListener('click', function(){
     storageField.innerText = 100;
-    totalUpdate()
+    totalUpdate();
 })
-stroage1TB.addEventListener('click', function(){
+document.getElementById('storage1TB').addEventListener('click', function(){
     storageField.innerText = 180;
-    totalUpdate()
+    totalUpdate();
 })
 
-// memory add even
-memory8GB.addEventListener('click',function(){
+// memory add event
+document.getElementById('memory-8gb-btn').addEventListener('click',function(){
     extraMemoryField.innerText= 0;
-    totalUpdate()
+    totalUpdate();
 
 })
-memory16GB.addEventListener('click',function(){
+document.getElementById('memory-16gb-btn').addEventListener('click',function(){
     extraMemoryField.innerText= 180;
-    totalUpdate()
+    totalUpdate();
 
 })
 // best price
 const bestPrice =document.getElementById('best-price');
 
-// total 
+// total price
 const totalPrice =document.getElementById('total-price');
 
 // final total
@@ -71,20 +72,21 @@ function totalUpdate(){
     totalPrice.innerText = grandTotal;
     finalTotal.innerText = grandTotal;
     return grandTotal;
-
 }
 
 // pomo code section 
-
-const applyButton = document.getElementById('apply-btn');
-
-applyButton.addEventListener('click',function(){
+function pomoCode(){
     const PomoInput = document.getElementById('pomo-input');
     const pomoField = PomoInput.value;
     const discountPrice =(totalUpdate()* 20)/100;
     if(pomoField=='stevekaku'){
-
         finalTotal.innerText = totalUpdate() - discountPrice;
     }
+
     PomoInput.value = '';
+}
+
+const applyButton = document.getElementById('apply-btn');
+applyButton.addEventListener('click',function(){
+    pomoCode();
 })
