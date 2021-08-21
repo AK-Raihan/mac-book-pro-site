@@ -57,6 +57,9 @@ const bestPrice =document.getElementById('best-price');
 // total 
 const totalPrice =document.getElementById('total-price');
 
+// final total
+const finalTotal = document.getElementById('final-total');
+
 
 // total update
 function totalUpdate(){
@@ -66,4 +69,22 @@ function totalUpdate(){
     const extraDeliveryCost = Number(deliveryField.innerText);
     const grandTotal = bestFixedPrice+ extraMemoryCost+ extraStorageCost+extraDeliveryCost;
     totalPrice.innerText = grandTotal;
+    finalTotal.innerText = grandTotal;
+    return grandTotal;
+
 }
+
+// pomo code section 
+
+const applyButton = document.getElementById('apply-btn');
+
+applyButton.addEventListener('click',function(){
+    const PomoInput = document.getElementById('pomo-input');
+    const pomoField = PomoInput.value;
+    const discountPrice =(totalUpdate()* 20)/100;
+    if(pomoField=='stevekaku'){
+
+        finalTotal.innerText = totalUpdate() - discountPrice;
+    }
+    PomoInput.value = '';
+})
